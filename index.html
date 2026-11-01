@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>261010 Show！音樂中心 MC 相沅 & 盱燦、榮書</title>
+
+<!-- 💡 修正：補上 id="custom-favicon" -->
+<link id="custom-favicon" rel="icon" type="image/png" href="https://github.com/ald1a1mem.png">
+
+<script>
+// =========================================================================
+// ✨【大平台設定區】以後換新影片，只需要修改這裡！ ✨
+// =========================================================================
+
+// 1. YouTube 影片 ID（請填入網址 watch?v= 後面那一串 11 位數英文數字）
+const videoId = "xizStbbTiDE"; 
+
+// 2. 🐱 你的 GitHub 帳號名稱（User Name）
+const githubUsername = "ald1a1mem"; 
+
+// 3. 右側時間軸捷徑（顯示名稱、要跳轉的時間秒數）
+const timeLinks = [
+   { label: "按鈕標題", seconds: 0 },
+];
+
+// 4. 影片字幕設定（如不需滾動字幕，保持空陣列 [] 即可）
+const subtitles = [
+  { time: 1, text: "大家好 " },
+  { time: 4, text: "榮書：還有今天的特别MC ALLDAY PROJECT 的榮書 " },
+  { time: 7, text: "盱燦：盱燦，很高興見到大家" },
+  { time: 9, text: "相沅：一場緊張刺激的KPOP競賽即將開始，歡迎各位來到音中大獎賽" },
+  { time: 15, endTime: 17,text: "歡迎大家" },
+  { time: 18, text: "相沅：首先我們要先介紹今天的出賽選手" },
+  { time: 21, endTime: 22,text: "盱燦：請下音樂" },
+  { time: 43, text: "相沅：兩位才剛開始就直接進入主題嗎，那麼兩位今天的出賽覺悟是什麼呢" },
+  { time: 49, text: "榮書：啊雖然不知道大家的狀態怎麼樣 " },
+  { time: 51, text: "榮書：但我今天是個不知道怎麼剎車的賽車手 " },
+  { time: 54, text: "相沅：喔不懂剎車" },
+  { time: 55, text: "盱燦：不懂剎車" },
+  { time: 56, text: "盱燦：我不是聖誕老人" },
+  { time: 59, text: "盱燦：但今天要在音樂中心好好狂飆一場" },
+  { time: 62, text: "盱燦：請大家好好期待" },
+  { time: 63, text: "相沅：很甜蜜" },
+  { time: 64, text: "盱燦：很甜蜜" },
+  { time: 65, text: "相沅：狂飆嗎，那我不能落後" },
+  { time: 68, text: "相沅：我要賭上 ALPHA DRIVE ONE 的名譽成為最好的賽車手" },
+  { time: 71, text: "榮書：今天的比賽肯定會非常精彩" },
+  { time: 75, text: "盱燦：不過真正的比賽現在才剛要開始" },
+  { time: 77, text: "盱燦：其他隊伍都準備對我們發起挑戰" },
+  { time: 80, text: "相沅：首先是 K-BAND 的領頭者N.Flying" },
+  { time: 83, endTime: 27,text: "榮書：站在全新起跑線上的黃旼炫、金在奐" },
+  { time: 89, text: "盱燦：全速踩下油門狂飆中的ONEUS、CRAVITY" },
+  { time: 92, endTime: 95,text: "相沅：能量氮氣加速器NiziU、KickFlip" },
+  { time: 97, endTime: 100,text: "榮書：沒有煞車的 ALLDAY PROJECT" },
+  { time: 102, endTime: 105,text: "盱燦：直奔粉絲內心的CLOSE YOUR EYES" },
+  { time: 106, endTime: 111,text: "相沅：為這場熱血賽事增更多看點的孔敏智、Woody X BORA，準備出賽" },
+  { time: 112, text: "榮書：今天會是哪支隊伍舉起冠軍獎盃呢" },
+  { time: 115, endTime: 122,text: "盱燦：請先來看10月第2週音樂中心M Chart本週一位候補的三支隊伍" },
+  { time: 127, endTime: 128,text: "相沅：BOYNEXTDOOR" },
+  { time: 129, endTime: 130,text: "相沅：小娟" },
+  { time: 132, endTime: 133,text: "相沅：IU" },
+  { time: 137, text: "榮書：決定ㄧ位的方式如下，簡訊請發送至#0505" },
+  { time: 142, text: "榮書：寫下您支持的團體名稱或專屬編號即可" },
+  { time: 147, text: "榮書：簡訊每則將收取100韓元費用" },
+  { time: 150, text: "盱燦：直播投票請下載畫面下方指定的APP" },
+  { time: 155, text: "盱燦：為您支持的候補投下一票" },
+  { time: 157, text: "相沅：今天也請大家踴躍參與投票" },
+  { time: 160, text: "相沅：那麼現在正式開啟直播投票" },
+  { time: 162, endTime: 165,text: "MC：直播投票現在開始" },
+  { time: 169, text: "榮書：引擎轟隆發動 蓄勢待發的超級新人們 傳遞直球告白的 HAENA" },
+  { time: 174, text: "盱燦：技師整備完成的KO1KEYZ" },
+  { time: 177, text: "相沅：讓我們一起迎接無限奔馳的TUIDE" },
+  { time: 179, endTime: 181,text: "MC：請出場" },
+  { time: 183, text: "榮書：哎呀怎麼辦" },
+  { time: 184, text: "榮書：相沅 今天是我和盱燦第一次當賽車主導MC" },
+  { time: 187, text: "榮書：這樣沒問題嗎" },
+  { time: 188, text: "相沅：有我在有什麼好擔心的" },
+  { time: 191, text: "盱燦：雖然還是有點緊張" },
+  { time: 193, text: "盱燦：但還是很讓人安心" },
+  { time: 196, text: "相沅：你們聽好了 賽車最重要的是什麼" },
+  { time: 199, text: "榮書：很快的速度" },
+  { time: 200, text: "相沅：不是喔" },
+  { time: 201, text: "盱燦：流暢的過彎嗎" },
+  { time: 204, text: "相沅：是繫好安全帶" },
+  { time: 206, text: "相沅：兩位安全帶都繫好了嗎 現在開始我們要提高車速、一路往前衝" },
+  { time: 210, text: "榮書：就這樣繼續升級到最高版的CLOSE YOUR EYES" },
+  { time: 214, text: "盱燦：朝著夢想前進的TIOT" },
+  { time: 216, text: "相沅：展現團隊默契的Woody X BORA " },
+  { time: 219, text: "相沅：我們一起來欣賞" },
+  { time: 220, endTime: 222,text: "MC：請出場" },
+  { time: 224, text: "相沅：我買了新車 載你出去兜風" },
+  { time: 229, text: "榮書：相沅我相信你 我會跟著你走" },
+  { time: 232, text: "相沅：沒問題，保證安全送達" },
+  { time: 234, text: "盱燦：不過我們今天就能抵達目的地吧" },
+  { time: 237, text: "相沅：當然 盱燦要先下車嗎 要現在放你下車嗎" },
+  { time: 240, text: "盱燦：你怎麼說話結巴" },
+  { time: 243, text: "盱燦：既然我都已經坐上副駕了 我們直接出發吧" },
+  { time: 246, text: "榮書：這次的目的地是哪裡" },
+  { time: 248, text: "相沅：就是強勢回歸的舞台" },
+  { time: 250, text: "相沅：透過火熱能量治癒大家的孔敏智" },
+  { time: 253, text: "盱燦：充滿自由能量的我們ALLDAY PROJECT" },
+  { time: 256, text: "榮書：持續奔馳、勇往直前的KickFlip" },
+  { time: 259, endTime: 261,text: "榮書：大家一起來感受這三支隊伍的重量級舞台" },
+  { time: 264, endTime: 265,text: "盱燦：請出場" },
+  { time: 266, text: "盱燦：各位我們要不要再把車速拉得更高、飆得更快呢" },
+  { time: 270, text: "榮書：不過現在油箱有點空 我們是不是要先加滿油再出發" },
+  { time: 274, text: "相沅：那接下來我們就用現場觀眾的尖叫歡呼聲來把油箱加滿吧" },
+  { time: 278, endTime: 280,text: "相沅：請給我音樂" },
+  { time: 298, text: "榮書：我可不能輸" },
+  { time: 299, endTime:303,text: "榮書：那我也來把油箱加滿一次吧\n請給我音樂" },
+  { time: 317, text: "盱燦：果然榮書很厲害呢\n相沅：做的很好" },
+  { time: 320, text: "盱燦：既然燃料已經加滿 接下來就讓我們全速踩下油門" },
+  { time: 324, text: "相沅：朝著全新起跑線出發的ONEUS" },
+  { time: 327, text: "榮書：著自信回歸的 CRAVITY" },
+  { time: 329, text: "盱燦：展現強大能量的 NiziU " },
+  { time: 333, endTime:334,text: "MC：請出場" },
+  { time: 337, text: "榮書：兩位 現在快要到終點了" },
+  { time: 341, text: "盱燦：那我先衝過終點" },
+  { time: 343, text: "相沅：你要去哪裡\n榮書：哪裡哪裡" },
+  { time: 344, text: "相沅：那不行\n盱燦：為什麼不能" },
+  { time: 347, text: "相沅：因為這場比賽我一定要贏過你" },
+  { time: 350, text: "榮書：那我可要趁這個時候先衝線奪冠" },
+  { time: 353, text: "相沅：榮書奪冠沒有那麼容易" },
+  { time: 356, text: "相沅：後面這幾位正緊緊追在後面準備超車" },
+  { time: 358, text: "盱燦：那最後我們就來展開一場漂亮的比賽吧" },
+  { time: 363, text: "榮書：將氣氛炒到最高點、擁有感性嗓音的" },
+  { time: 365, text: "相沅：金在奐" },
+  { time: 368, text: "盱燦：青春樂團 N.Flying" },
+  { time: 371, text: "榮書：我們繼續朝著完賽的目標進行這場賽事吧" },
+  { time: 376, endTime:334,text: "MC：請出場" },
+  { time: 380, text: "盱燦：Show!音樂中心現場直播 直播投票即將結束 大家一起倒數" },
+  { time: 386, text: "MC：5、4、3、2、1" },
+  { time: 391, text: "MC：直播投票結束" },
+  { time: 394, endTime:397,text: "榮書：究竟今天的第1名會是誰呢，請看結果" },
+  { time: 399, endTime:402,text: "相沅：公布音源與專輯分數" },
+  { time: 405, endTime:408,text: "相沅：影音與MBC播出分數" },
+  { time: 410, endTime:412,text: "相沅：預先投票分數" },
+  { time: 416, text: "相沅：最後加上直播投票後的最終結果" },
+  { time: 419, endTime:420,text: "相沅：那麼第3名是" },
+  { time: 422, endTime:423,text: "相沅：IU" },
+  { time: 424, endTime:425,text: "相沅：那麼今天的第1名是" },
+  { time: 427, text: "相沅：本週的第1名是小娟" },
+  { time: 429, endTime:430,text: "相沅：恭喜" },
+  { time: 432, text: "盱燦：恭喜小娟獲得第1名" },
+  { time: 434, text: "盱燦：我們會將獎盃送到" },
+  { time: 437, text: "相沅：再次恭喜小娟獲得本週第1名" },
+  { time: 441, text: "相沅：兩位今天作為特別MC 和我一起主持，感覺怎麼樣呢" },
+  { time: 444, text: "榮書：今天是我第一次擔任音樂中心MC" },
+  { time: 449, text: "榮書：但是多虧了盱燦和相沅我才能進行的很順利" },
+  { time: 453, text: "榮書：謝謝" },
+  { time: 454, text: "盱燦：其實我擔任過幾次特別MC" },
+  { time: 457, text: "盱燦：不過今天以這樣的組合來主持" },
+  { time: 459, text: "盱燦：感覺就像經歷了一場非常驚險刺激的賽車比賽一樣 謝謝\n相沅：謝謝" },
+  { time: 464, text: "相沅：多虧了兩位我也玩得很開心" },
+  { time: 466, text: "相沅：下次有機會一起合作的話 我會非常感激的" },
+  { time: 468, text: "相沅：那我們就在這裡跟大家告別" },
+  { time: 470, text: "榮書：大韓民國音樂中心" },
+  { time: 472, text: "盱燦：Show!音樂中心" },
+  { time: 473, text: "MC：下週也請繼續期待 show show show" },
+  { time: 477, endTime:478,text: "MC：拜拜" },
+];
+
+// =========================================================================
+</script>
+
+<style>
+/* 🎨 全域基礎樣式（深色背景） */
+body { 
+  background: #111; 
+  color: white; 
+  text-align: center; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+  margin: 0; 
+  overflow-x: hidden; 
+}
+
+/* 🌟 主題顏色設定（亮藍色風格） */
+:root { 
+  --main-color: #5698c3; 
+}
+
+/* 🔝 標題與字幕控制區 */
+#title { 
+  font-size: 28px; 
+  margin: 20px auto 15px auto; 
+  font-weight: bold; 
+  line-height: 1.5; 
+  max-width: 95%; 
+}
+
+#subtitle-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* 🎬 核心外層大框框：寬度限制為影片寬度，使其完美居中 */
+#main-layout {
+  position: relative;
+  max-width: 640px; 
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#video-wrapper { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  width: 100%; 
+}
+
+/* 🎥 影片容器 */
+#video-container { 
+  position: relative; 
+  width: 100%; 
+  aspect-ratio: 16 / 9; 
+  background: black; 
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+#player, #player iframe { 
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+}
+
+/* 💬 浮動字幕樣式 */
+#subtitle { 
+  position: absolute; 
+  bottom: 12%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 24px; 
+  color: white; 
+  background: rgba(0,0,0,0.65); 
+  padding: 8px 20px; 
+  border-radius: 8px; 
+  white-space: pre-line; 
+  max-width: 70%; 
+  width: fit-content; 
+  pointer-events: none; 
+  z-index: 10; 
+  line-height: 1.4; 
+  display: none;
+  transition: font-size 0.2s ease;
+}
+
+/* 🎯 底部控制列（影片下方只留下全螢幕按鈕） */
+#bottom-block { 
+  width: 100%; 
+  margin-top: 20px; 
+  margin-bottom: 35px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+/* 按鈕通用樣式 */
+.btn {
+  background: var(--main-color); 
+  color: white; 
+  border: none; 
+  padding: 8px 22px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-weight: bold; 
+  transition: 0.3s; 
+  font-size: 15px;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+/* 主按鈕（全螢幕）加寬加厚 */
+#fullscreenBtn { 
+  padding: 10px 35px;
+  font-size: 16px;
+}
+
+/* 🚪 進入全螢幕後在畫面右下方顯示的「退出全螢幕」按鈕（主色調） */
+#exitFullscreenBtn {
+  display: none; 
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20; 
+  background: var(--main-color); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+#exitFullscreenBtn:hover {
+  filter: brightness(1.1);
+}
+/* 當偵測到全螢幕狀態時，自動強制顯示該按鈕 */
+#video-container:fullscreen #exitFullscreenBtn,
+#video-container:-webkit-full-screen #exitFullscreenBtn {
+  display: block !important;
+}
+
+/* 📜 右側獨立時間軸選單 */
+#timeline-sidebar {
+  position: absolute;
+  left: 680px;      
+  top: 0;
+  width: 280px;
+  height: 360px;    
+  background: #222;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; 
+  text-align: left;
+}
+
+/* 側欄標題區 */
+#sidebar-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--main-color); 
+  margin-bottom: 5px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+#timeline-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 📜 美化側欄滾動條 */
+#timeline-sidebar::-webkit-scrollbar { width: 6px; }
+#timeline-sidebar::-webkit-scrollbar-track { background: #222; }
+#timeline-sidebar::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+#timeline-sidebar::-webkit-scrollbar-thumb:hover { background: var(--main-color); }
+
+/* 📱 RWD 行動裝置自動適應 */
+@media (max-width: 1024px) {
+  #main-layout { max-width: min(95vw, 640px); }
+  #timeline-sidebar {
+    position: static; 
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="title">261010 Show！音樂中心 MC 相沅 & 盱燦、榮書</div>
+
+<div id="subtitle-controls">
+  <button class="btn" onclick="adjustSubtitle(4)">放大</button>
+  <button class="btn" onclick="adjustSubtitle(-4)">縮小</button>
+  <button class="btn" onclick="resetSubtitle()">復原</button>
+</div>
+
+<div id="main-layout">
+  
+  <div id="video-wrapper">
+    <div id="video-container">
+      <div id="player"></div>
+      <div id="subtitle"></div>
+      <button id="exitFullscreenBtn" class="btn" onclick="exitFullScreen()">退出全螢幕</button>
+    </div>
+    
+    <div id="bottom-block">
+      <button id="fullscreenBtn" class="btn" onclick="enterFullScreen()">全螢幕</button>
+    </div>
+  </div>
+
+  <div id="timeline-sidebar">
+    <div id="sidebar-title">時間軸目錄</div>
+    <div id="timeline-controls"></div>
+  </div>
+
+</div>
+
+<script>
+let player = null;
+const defaultFontSize = 24; 
+let currentFontSize = defaultFontSize;
+
+// 載入 YouTube API
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    height: "360",
+    width: "640",
+    videoId: videoId,
+    playerVars: { 
+      'autoplay': 0, 
+      'controls': 1, 
+      'rel': 0, 
+      'modestbranding': 1, 
+      'origin': window.location.origin,
+      'fs': 0 
+    },
+    events: { 
+      'onReady': onPlayerReady 
+    }
+  });
+}
+function onPlayerReady(event) { 
+  initTimelineButtons();
+  initGithubFavicon(); 
+  resetSubtitle();
+  // 💡 建議：調整為 40ms，字幕偵測更順暢
+  setInterval(videoLoop, 40); 
+}
+
+function videoLoop() {
+  if (!player || typeof player.getCurrentTime !== 'function') return;
+  const currentTime = player.getCurrentTime();
+  updateSubtitle(currentTime);
+}
+// 🌐 核心功能：動態綁定 GitHub 頭像至 Favicon
+function initGithubFavicon() {
+  if (!githubUsername || githubUsername === "填入你的GitHub帳號") return;
+  
+  const githubAvatarUrl = `https://github.com/${githubUsername}.png`;
+  const faviconEl = document.getElementById("custom-favicon");
+  if (faviconEl) {
+    faviconEl.href = githubAvatarUrl;
+  }
+}
+
+// 更新字幕
+function updateSubtitle(t){
+  if (!subtitles || subtitles.length === 0) return;
+  let text = "";
+  for(let i = subtitles.length - 1; i >= 0; i--){
+    const sub = subtitles[i];
+    if(t >= sub.time){
+      if(sub.endTime && t >= sub.endTime) { text = ""; } 
+      else { text = sub.text; }
+      break; 
+    }
+  }
+  const subEl = document.getElementById("subtitle");
+  if(text === "") { subEl.style.display = "none"; } 
+  else { subEl.style.display = "block"; subEl.innerText = text; }
+}
+
+// 點擊跳轉時間
+function jumpToTime(seconds) {
+  if (player && typeof player.seekTo === 'function') {
+    player.seekTo(seconds, true);
+    if (player.getPlayerState() !== 1) player.playVideo();
+  }
+}
+
+// 生成右側時間軸按鈕
+function initTimelineButtons() {
+  const container = document.getElementById("timeline-controls");
+  if (!container || !timeLinks || timeLinks.length === 0) return;
+  container.innerHTML = "";
+  timeLinks.forEach(link => {
+    const btn = document.createElement("button");
+    btn.innerText = link.label;
+    btn.style.cssText = "background: #333; color: white; border: 1px solid #444; padding: 12px 15px; border-radius: 6px; cursor: pointer; transition: 0.3s; font-weight: bold; font-size: 14px; width: 100%; text-align: left;";
+    btn.onmouseover = () => { btn.style.background = "var(--main-color)"; btn.style.borderColor = "var(--main-color)"; };
+    btn.onmouseout = () => { btn.style.background = "#333"; btn.style.borderColor = "#444"; };
+    btn.onclick = () => jumpToTime(link.seconds);
+    container.appendChild(btn);
+  });
+}
+
+// 字幕放大縮小功能
+function adjustSubtitle(value) {
+  const subEl = document.getElementById("subtitle");
+  currentFontSize += value;
+  if (currentFontSize < 12) currentFontSize = 12; 
+  if (currentFontSize > 60) currentFontSize = 60; 
+  subEl.style.fontSize = currentFontSize + "px";
+}
+
+// 字幕復原功能
+function resetSubtitle() {
+  const subEl = document.getElementById("subtitle");
+  currentFontSize = defaultFontSize;
+  subEl.style.fontSize = currentFontSize + "px";
+}
+
+// 進入全螢幕
+function enterFullScreen() {
+  const elem = document.getElementById("video-container");
+  let req = elem.requestFullscreen || elem.webkitRequestFullscreen;
+  if (req) req.call(elem);
+}
+
+// 離開全螢幕
+function exitFullScreen() {
+  let exit = document.exitFullscreen || document.webkitExitFullscreen;
+  if (exit) exit.call(document);
+}
+</script>
+</body>
+</html>
